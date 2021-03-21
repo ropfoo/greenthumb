@@ -1,0 +1,18 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator typegraphql {
+    provider = "typegraphql-prisma"
+    output   = "../src/generated/type-graphql"
+}
+
+model User {
+    id   Int    @id @default(autoincrement())
+    name String
+}
